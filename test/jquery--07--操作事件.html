@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>jquery操作事件</title>
+		<meta charset="UTF-8"/>
+		<script src="js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//js动态添加事件 会覆盖
+			function testThing(){
+				//获取元素对象 
+				var btn=document.getElementById("btn");
+				//添加事件
+				btn.onclick=function(){
+					alert("我是js方式");
+				}
+			}
+			
+			//jquery动态添加事件 追加的方式 测试
+			function testBind(){
+				$("#btn2").bind("click",function(){alert("我是bind绑定事件")});
+				$("#btn2").bind("click",function(){alert("我是jquery绑定事件888")})
+			}
+			//jquery动态解绑
+			function testUnBind(){
+				$("#btn3").unbind("click");//把这个事件解绑了，只能解绑jquery的绑定的事件
+			}
+			
+			function testone(){
+				$("#btn2").one("click",function(){alert("我是one")});//事件执行一次就失效了
+			}
+			
+			//页面载入事件
+			//js方式 会覆盖
+			window.onload=function(){
+				alert("我是js页面加载");
+			}
+			window.onload=function(){
+				alert("我是js页面加载覆盖");
+			}
+			
+			//jquery方式 动态的执行多个函数(不会覆盖)
+			$(document).ready(function(){
+				alert("我是jquery方式");
+			})
+			$(document).ready(function(){
+				alert("我是jquery方式88888");
+			})
+		</script>
+	</head>
+	<body>
+		<h3>jquery操作事件</h3>
+		<input type="button" name="" id="" value="测试js动态添加事件" onclick="testThing();"/>
+		<input type="button" name="" id="" value="测试jquery动态添加事件--bind" onclick="testBind();"/>
+		<input type="button" name="" id="" value="测试jquery动态解绑事件--unbind" onclick="testUnBind();"/>
+		<input type="button" name="" id="" value="测试jquery动态解绑事件--one" onclick="testone();"/>
+		<hr />
+		<input type="button" name="" id="btn" value="测试js" />
+		<input type="button" name="btn2" id="btn2" value="测试jquery-bind" />
+		<input type="button" name="" id="btn3" value="测试Jquery-one" />
+	</body>
+</html>

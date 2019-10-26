@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>jquery动画效果</title>
+		<meta charset="UTF-8"/>
+		<script src="js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function test(){
+				$("#showdiv").show(2000);
+				$("#div01").hide(2000);
+//				$("#showdiv").hide(3000);
+//				$("#div01").show(3000);
+				$("div").toggle(2000);
+				$("#showdiv").slideDown(2000);
+				$("#div01").slideUp(2000);
+				$("#showdiv").fadeOut(2000);
+			}
+		</script>
+		<style type="text/css">
+			#showdiv{
+				height: 50%;
+				background-color: orange;
+				display: none;
+			}
+			#div01{
+				height:50%;
+				background-color: #8A2BE2;	
+			}
+		</style>
+	</head>
+	<body onload="test()">
+		<div id="showdiv">
+			
+		</div>
+		<div id="div01">
+			
+		</div>
+	</body>
+</html>

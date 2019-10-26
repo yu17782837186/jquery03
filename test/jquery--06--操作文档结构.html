@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<title>jquery操作文档结构</title>
+		<meta charset="UTF-8"/>
+		<script src="js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//内部插入
+			function testAppend(){
+				//获取元素对象
+				var div=$("#showdiv");
+				//使用内部插入
+				div.append("<i>喜欢</i>")//在内容后面追加
+			}
+			function testAppendTo(){
+				//获取元素对象
+				var div=$("#showdiv");
+				//使用appendTo
+				$("#u1").appendTo(div);//将指定的对象移动到指定位置
+			}
+			
+			function testPrepend(){
+				//获取元素对象
+				var div=$("#showdiv");
+				//使用prepend()
+				div.prepend("<i>你好,</i>")//追加到内部前面
+			}
+			//外部插入
+			function testAfter(){
+				//获取元素对象
+				var div=$("#showdiv");
+				//使用after外部插入
+				div.after("<b>今天看见了很多好吃的东西</b>");//追加到div的后面
+			}
+			//外部插入
+			function testBefore(){
+				//获取元素对象
+				var div=$("#showdiv");
+				//使用before外部插入到前面
+				div.before("<b>我喜欢敲代码。你问我爱你有多深，我爱你有几分</b>");//追加到div的前面
+			}
+			
+			function testEmpty(){
+				$("#showdiv").empty()//清空div里面的所有内容
+			}
+		</script>
+		<style type="text/css">
+			#showdiv{
+				width: 300px;
+				height: 300px;
+				border: solid 4px orange;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>jquery操作文档结构</h3>
+		<input type="button" name="" id="" value="测试append" onclick="testAppend();"/>
+		<input type="button" name="" id="" value="测试appendTo" onclick="testAppendTo();"/>
+		<input type="button" name="" id="" value="测试prepend" onclick="testPrepend();"/>
+		<hr />
+		<input type="button" name="" id="" value="测试after" onclick="testAfter();"/>
+		<input type="button" name="" id="" value="测试before" onclick="testBefore();"/>
+		<input type="button" name="" id="" value="测试empty" onclick="testEmpty();"/>
+		<hr />
+		<u id="u1">我喜欢美丽的小姐姐，哈哈哈</u>
+		<div id="showdiv">
+			<b>你喜欢学习吗？</b>
+		</div>
+	</body>
+</html>
